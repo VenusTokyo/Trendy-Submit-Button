@@ -38,3 +38,21 @@ passwordRef.addEventListener("input",()=>{
     
     }
 })
+submitBtn.addEventListener("mouseover",()=>{
+    if(!isUsernameValid()|| !isPasswordValid()){
+        let containerRect = document.querySelector(".container").getBoundingClientRect();
+        let submitRect =submitBtn.getBoundingClientRect()
+        let offset =submitRect.left-containerRect.left
+        console.log(offset)
+
+        if(offset <= 100){
+            submitBtn.style.transform="translateX(14.75em)"
+        }
+        else{
+            submitBtn.style.transform="translateX(0)"
+        }
+    }
+})
+submitBtn.addEventListener("click",()=>{
+    messageRef.style.visibility="visible"
+})
